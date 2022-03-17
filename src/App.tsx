@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+export default function App() {
+
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    // Обновляем заголовок документа с помощью API браузера
+    document.title = `Вы нажали ${count} раз`;
+  });
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Вы нажали {count} раз</p>
+        <button onClick={() => setCount(count + 1)}>
+          Нажми на меня
+        </button>
       </header>
     </div>
   );
-}
+};
 
-export default App;
