@@ -8,10 +8,12 @@ import {rootReducer} from "./redux/rootReducer";
 import { GlobalStyle } from './styles/global';
 import './index.css';
 import App from './App';
+import {forbiddenWordsMiddleware} from "./redux/middleware";
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(
-    thunk
+    thunk,
+    forbiddenWordsMiddleware
   ),
   // other store enhancers if any
 ))
