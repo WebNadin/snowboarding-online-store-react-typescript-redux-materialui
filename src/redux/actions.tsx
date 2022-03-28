@@ -1,5 +1,14 @@
-import {CREATE_COMMENT, FETCH_COMMENTS, HIDE_ALERT, HIDE_LOADER, SHOW_ALERT, SHOW_LOADER} from "./types";
-import {IAction} from "./commentsReducer";
+import {
+  CREATE_COMMENT,
+  FETCH_COMMENTS,
+  HIDE_ALERT,
+  HIDE_LOADER,
+  REQUEST_COMMENTS,
+  SHOW_ALERT,
+  SHOW_LOADER
+} from "./types";
+import {AppDispatch} from "../index";
+
 
 export function createComment(comment: {}): {} {
   return {
@@ -19,8 +28,8 @@ export function hideLoader() {
   }
 }
 
-export function showAlert(text: string) {
-  return (dispatch: ({}) => IAction) => {
+export function showAlert(text: string): any {
+  return ({dispatch}:any) => {
     dispatch({
         type: SHOW_ALERT,
         payload: text
@@ -39,16 +48,19 @@ export function hideAlert() {
 }
 
 export function fetchComments(): {} {
-  return async (dispatch: ({}) => void) => {
-    try {
-      dispatch(showLoader());
-      const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=5');
-      const json = await response.json();
-      dispatch({type: FETCH_COMMENTS, payload: json})
-      dispatch(hideLoader());
-    } catch (e) {
-      dispatch(showAlert("Что-то пошло не так"));
-      dispatch(hideLoader());
-    }
+  return {
+    type: REQUEST_COMMENTS
   }
+  // return async (dispatch: ({}) => void) => {
+  //   try {
+  //     dispatch(showLoader());
+  //     const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=5');
+  //     const json = await response.json();
+  //     dispatch({type: FETCH_COMMENTS, payload: json})
+  //     dispatch(hideLoader());
+  //   } catch (e) {
+  //     dispatch(showAlert("Что-то пошло не так"));
+  //     dispatch(hideLoader());
+  //   }
+  // }
 }
