@@ -6,6 +6,10 @@ import FormComment from "./components/FormComment";
 import Comments from "./components/Comments";
 import FetchedComments from "./components/FetchedComments";
 import Header from './components/Header';
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import {BrowserRouter} from "react-router-dom";
+import { Box } from '@mui/system';
 
 const CustomInput = (props: React.HTMLProps<HTMLInputElement>) => {
   const [value, setValue] = useState<number>(100);
@@ -60,9 +64,13 @@ async function getPerson ( id = 1): Promise<Person> {
 
 export default function App() {
   return (
-    <>
-      <Header />
-    </>
+    <BrowserRouter>
+      <Box sx={{display: "flex", flexDirection: "column", height: "100%"}}>
+        <Header />
+        <Main />
+        <Footer />
+      </Box>
+    </BrowserRouter>
   );
 };
 

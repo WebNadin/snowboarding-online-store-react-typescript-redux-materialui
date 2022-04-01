@@ -351,14 +351,24 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   /*and of normalize.css*/
+  #root {
+    height: 100%;
+  }
+
+  html{
+    height: 100%;
+  }
 
   body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
     //color: #282c34;
-    color: green;
-    background-color: burlywood;
+    color: rgba(0,0,0,0.87);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   
   a {
