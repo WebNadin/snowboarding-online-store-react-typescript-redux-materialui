@@ -363,9 +363,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    //color: #282c34;
     color: rgba(0,0,0,0.87);
-    background-color: white;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     height: 100%;

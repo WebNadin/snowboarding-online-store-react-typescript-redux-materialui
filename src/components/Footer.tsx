@@ -3,7 +3,7 @@ import {myTheme} from "../styles/myTheme";
 
 const Footer = () => {
   return (
-    <Box sx={{flex: "0 0 auto", bgcolor: myTheme.dark.background.primary, color: myTheme.dark.text.secondary}}>
+    <Box sx={{flex: "0 0 auto", backgroundColor: myTheme.dark.background.primary, color: myTheme.dark.text.secondary}}>
       Footer component
     </Box>
   )
