@@ -78,7 +78,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-//const pages = ['Home', 'Products', 'About', 'Contact'];
 const pages = [
   {
     title: 'Home',
