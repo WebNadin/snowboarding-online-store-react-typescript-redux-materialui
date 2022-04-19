@@ -16,7 +16,6 @@ const CustomInput = (props: React.HTMLProps<HTMLInputElement>) => {
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(parseInt(e.target.value, 10));
   }
-  console.log('value = ',value);
   return (
     <input
       type='number'
