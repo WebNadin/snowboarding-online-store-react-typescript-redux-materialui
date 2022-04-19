@@ -1,26 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import {BrowserRouter} from "react-router-dom";
+import { Box } from '@mui/system';
+
 
 export default function App() {
-
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // Обновляем заголовок документа с помощью API браузера
-    document.title = `Вы нажали ${count} раз`;
-  });
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Вы нажали {count} раз</p>
-        <button onClick={() => setCount(count + 1)}>
-          Нажми на меня
-        </button>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Box sx={{display: "flex", flexDirection: "column", height: "100%"}}>
+        <Header />
+        <Main />
+        <Footer />
+      </Box>
+    </BrowserRouter>
   );
 };
 
