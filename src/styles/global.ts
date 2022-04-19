@@ -351,18 +351,35 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   /*and of normalize.css*/
+  #root {
+    height: 100%;
+  }
+
+  html{
+    height: 100%;
+  }
 
   body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    //color: #282c34;
-    color: green;
-    background-color: burlywood;
+    color: rgba(0,0,0,0.87);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   
-  a {
+  a{
     text-decoration: none;
+    outline: none;
+  }
+  a {
     color: #282c34;
+    transition: color .3s;
+  }
+  a:hover{
+    color: #57c5a0;
+    text-decoration: none;
   }
 `
