@@ -370,8 +370,16 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   
-  a {
+  a{
     text-decoration: none;
+    outline: none;
+  }
+  a {
     color: #282c34;
+    transition: color .3s;
+  }
+  a:hover{
+    color: #57c5a0;
+    text-decoration: none;
   }
 `

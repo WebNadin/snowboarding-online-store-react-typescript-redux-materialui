@@ -12,7 +12,6 @@ import { Menu as MenuIcon } from "@material-ui/icons";
 import SearchIcon from '@material-ui/icons/Search';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
@@ -20,6 +19,7 @@ import InputBase from '@mui/material/InputBase';
 import { ShoppingCart as ShoppingCartIcon } from '@material-ui/icons';
 import {myTheme} from "../styles/myTheme";
 import avatar from '../images/avatar.jpg';
+import {Link} from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -78,7 +78,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ['Products', 'Pricing', 'Blog'];
+//const pages = ['Home', 'Products', 'About', 'Contact'];
+const pages = [
+  {
+    title: 'Home',
+    href: '/'
+  },
+  {
+    title: 'Products',
+    href: '/products'
+  },
+  {
+    title: 'About',
+    href: '/about'
+  },
+  {
+    title: 'Contact',
+    href: '/contact'
+  }
+];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Header = () => {
@@ -185,7 +203,6 @@ const Header = () => {
           }}>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
-                size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -213,8 +230,17 @@ const Header = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <MenuItem key={page.title}>
+                    <Link
+                      href={page.href}
+                      textAlign="center"
+                      sx={{
+                        textDecoration: 'none',
+                        color: myTheme.light.text.primary
+                    }}
+                    >
+                      {page.title}
+                    </Link>
                   </MenuItem>
                 ))}
               </Menu>
@@ -223,13 +249,13 @@ const Header = () => {
               <Divider orientation="vertical" flexItem />
               {pages.map((page) => {
                 return (
-                  <Box sx={{ display: 'flex' }} key={page}>
-                    <Button
-                      onClick={handleCloseNavMenu}
+                  <Box sx={{ display: 'flex' }} key={page.title}>
+                    <Link
+                      href={page.href}
                       sx={{color: myTheme.light.text.primary, display: 'block', p:1 }}
                     >
-                      {page}
-                    </Button>
+                      {page.title}
+                    </Link>
                     <Divider orientation="vertical" flexItem />
                   </Box>
                 )
