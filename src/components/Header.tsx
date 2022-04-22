@@ -78,7 +78,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = [
+export const pages = [
   {
     title: 'Home',
     href: '/'
