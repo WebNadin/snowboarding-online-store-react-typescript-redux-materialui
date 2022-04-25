@@ -55,7 +55,7 @@ const Footer = () => {
       <Container maxWidth="xl">
         <Grid container
               rowSpacing={{xs: 2}}
-              columnSpacing={{ xs: 2, md: 12 }}
+              columnSpacing={{ sm: 4, md: 10 }}
               sx={{ p: 3 }}
         >
           <Grid item
