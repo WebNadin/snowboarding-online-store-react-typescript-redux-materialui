@@ -18,11 +18,11 @@ const TitleFooter = styled('div')(() => ({
 }));
 const LinksFooter = styled('div')(() => ({
   backgroundColor: myTheme.dark.background.secondary,
+  color: myTheme.dark.text.secondary,
   fontSize: '.9em',
   textAlign: 'center',
   display: 'flex',
   fontWeight: 600,
-  padding: '3em',
 }));
 
 export interface IReview {
@@ -37,6 +37,11 @@ const ReviewFooter = ({ review }: {review: IReview}) => {
       <Typography color={myTheme.common.accent} sx={{fontSize: '0.9em'}}>{review.name}</Typography>
       <Typography sx={{fontSize: '0.9em'}}>{review.text}</Typography>
     </Box>
+  )
+}
+const DividerFooterLinks = () => {
+  return (
+    <Typography component='span' sx={{fontSize: '0.9em', m: 1}}>/</Typography>
   )
 }
 
@@ -109,24 +114,32 @@ const Footer = () => {
         <Container maxWidth="xl">
           <Box sx={{
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            p: 3,
           }}
           >
-            {pages.map((page, index,array) => (
-              <Typography key={page.title}>
-                <Link
-                  href={page.href}
-                  textAlign="center"
-                  sx={{
-                    textDecoration: 'none',
-                    color: myTheme.dark.text.primary
-                  }}
-                >
-                  {page.title}
-                </Link>
-                {index < array.length-1 && "/"}
-              </Typography>
-            ))}
+            <Box>
+              <Typography component='div' align='left' fontSize='0.9em'>Copyright © Snowboarding 2022. </Typography>
+              <Typography component='div' align='left' fontSize='0.9em'>Designed by EnzoLiVolti.</Typography>
+            </Box>
+            <Box sx={{display: 'flex'}}>
+              {pages.map((page, index,array) => (
+                <Typography key={page.title} fontSize='0.9em'>
+                  <Link
+                    href={page.href}
+                    textAlign="center"
+                    sx={{
+                      textDecoration: 'none',
+                      color: myTheme.dark.text.secondary
+                    }}
+                  >
+                    {page.title}
+                  </Link>
+                  {index < array.length-1 && <DividerFooterLinks />}
+                </Typography>
+              ))}
+            </Box>
           </Box>
         </Container>
       </LinksFooter>
