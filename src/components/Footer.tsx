@@ -115,6 +115,7 @@ const Footer = () => {
           <Box sx={{
             display: 'flex',
             justifyContent: 'space-between',
+            flexFlow: 'row wrap',
             alignItems: 'center',
             p: 3,
           }}
@@ -123,7 +124,21 @@ const Footer = () => {
               <Typography component='div' align='left' fontSize='0.9em'>Copyright © Snowboarding 2022. </Typography>
               <Typography component='div' align='left' fontSize='0.9em'>Designed by EnzoLiVolti.</Typography>
             </Box>
-            <Box sx={{display: 'flex'}}>
+            <Box sx={{
+              display: 'flex',
+              order: {
+                xs: -1,
+                sm: 0
+              },
+              width: {
+                xs: '100%',
+                sm: 'auto',
+              },
+              mb: {
+                xs: 3,
+                sm: 0,
+              }
+            }}>
               {pages.map((page, index,array) => (
                 <Typography key={page.title} fontSize='0.9em'>
                   <Link
