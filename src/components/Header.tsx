@@ -261,14 +261,12 @@ const Header = () => {
               })}
             </Box>
             <Box sx={{ flexGrow: 0, display: 'flex'}}>
-              <Divider orientation="vertical" flexItem />
               <IconButton size="large" aria-label="show 4 new mails" color="inherit"
                           sx={{ p:1 }}>
                 <Badge badgeContent={4} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
-              <Divider orientation="vertical" flexItem sx={{ml:1}}/>
             </Box>
           </Toolbar>
         </Container>
