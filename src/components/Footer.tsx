@@ -8,7 +8,7 @@ import {pages} from "./Header";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 
-const TitleFooter = styled('div')(({ theme }) => ({
+const TitleFooter = styled('div')(() => ({
   color: myTheme.dark.text.secondary,
   fontSize: '.9em',
   textTransform: 'uppercase',
@@ -16,7 +16,7 @@ const TitleFooter = styled('div')(({ theme }) => ({
   fontWeight: 600,
   margin: '1.5em',
 }));
-const LinksFooter = styled('div')(({ theme }) => ({
+const LinksFooter = styled('div')(() => ({
   backgroundColor: myTheme.dark.background.secondary,
   fontSize: '.9em',
   textAlign: 'center',
@@ -89,7 +89,9 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum exercitationem illum optio pariatur voluptatem. Aut eligendi natus nisi quo recusandae.
           </Grid>
         </Grid>
-        <Divider color="#1c1c1c"/>
+      </Container>
+      <Divider color="#1c1c1c"/>
+      <Container maxWidth="xl">
         <Box sx={{
           display: 'flex',
           justifyContent: 'space-between',
