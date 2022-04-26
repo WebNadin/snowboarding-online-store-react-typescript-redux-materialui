@@ -7,6 +7,12 @@ import Typography from "@mui/material/Typography";
 import {pages} from "./Header";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
+import burton from '../images/brands/burton.png';
+import darkstar from '../images/brands/darkstar.png';
+import dc from '../images/brands/dc.png';
+import nitro from '../images/brands/nitro.png';
+import salomon from '../images/brands/salomon.png';
+import vans from '../images/brands/vans.png';
 
 const TitleFooter = styled('div')(() => ({
   color: myTheme.dark.text.secondary,
@@ -45,6 +51,67 @@ const DividerFooterLinks = () => {
   )
 }
 
+interface IBrand {
+  title: string,
+  src: string,
+}
+
+const BrandsList = () => {
+  const brands = [
+    {
+      title: 'burton',
+      src: burton,
+    },
+    {
+      title: 'darkstar',
+      src: darkstar,
+    },
+    {
+      title: 'dc',
+      src: dc,
+    },
+    {
+      title: 'nitro',
+      src: nitro,
+    },
+    {
+      title: 'salomon',
+      src: salomon,
+    },
+    {
+      title: 'vans',
+      src: vans,
+    }
+  ];
+  return (
+    <Grid container spacing={2}>
+      {brands.map((brand: IBrand) => (
+        <Grid item xs={4} sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          minWidth: '70px'
+        }}>
+        <Box sx={{
+          bgcolor: myTheme.light.background.primary,
+          p: 1,
+          width: '100%',
+          textAlign: 'center',
+        }}>
+          <img
+            src={brand.src}
+            srcSet={brand.src}
+            alt={brand.title}
+            loading="lazy"
+            width='70px'
+            height= '70px'
+          />
+        </Box>
+        </Grid>
+      ))}
+    </Grid>
+  );
+}
+
 const Footer = () => {
   return (
     <Box sx={{
@@ -60,7 +127,7 @@ const Footer = () => {
       <Container maxWidth="xl">
         <Grid container
               rowSpacing={{xs: 2}}
-              columnSpacing={{ sm: 4, md: 10 }}
+              columnSpacing={{ sm: 4, md: 8 }}
               sx={{ p: 3 }}
         >
           <Grid item
@@ -91,7 +158,7 @@ const Footer = () => {
                 md={4}
           >
             <TitleFooter>brands</TitleFooter>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum exercitationem illum optio pariatur voluptatem. Aut eligendi natus nisi quo recusandae.
+            <BrandsList />
           </Grid>
         </Grid>
       </Container>
