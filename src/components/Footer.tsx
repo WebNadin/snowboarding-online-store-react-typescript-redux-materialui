@@ -1,14 +1,27 @@
-import Box from "@mui/material/Box";
-import {myTheme} from "../styles/myTheme";
-import {Grid, Link} from "@mui/material";
-import {styled} from "@mui/material/styles";
 import React from "react";
+import Box from "@mui/material/Box";
+import {Button, Grid, Link} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
 import {pages} from "./Header";
+import {myTheme} from "../styles/myTheme";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import TextField from '@material-ui/core/TextField';
+import Burton from '../images/brands/burton.png';
+import Darkstar from '../images/brands/darkstar.png';
+import Dc from '../images/brands/dc.png';
+import Nitro from '../images/brands/nitro.png';
+import Salomon from '../images/brands/salomon.png';
+import Vans from '../images/brands/vans.png';
+import { ReactComponent as Facebook } from '../images/social/facebook.svg';
+import { ReactComponent as GooglePlus } from '../images/social/google-plus.svg';
+import { ReactComponent as LinkedIn } from '../images/social/linkedin2.svg';
+import { ReactComponent as Twitter } from '../images/social/twitter.svg';
 
-const TitleFooter = styled('div')(({ theme }) => ({
+const TitleFooter = styled('div')(() => ({
   color: myTheme.dark.text.secondary,
   fontSize: '.9em',
   textTransform: 'uppercase',
@@ -16,13 +29,13 @@ const TitleFooter = styled('div')(({ theme }) => ({
   fontWeight: 600,
   margin: '1.5em',
 }));
-const LinksFooter = styled('div')(({ theme }) => ({
+const LinksFooter = styled('div')(() => ({
   backgroundColor: myTheme.dark.background.secondary,
+  color: myTheme.dark.text.secondary,
   fontSize: '.9em',
   textAlign: 'center',
   display: 'flex',
   fontWeight: 600,
-  padding: '3em',
 }));
 
 export interface IReview {
@@ -39,6 +52,207 @@ const ReviewFooter = ({ review }: {review: IReview}) => {
     </Box>
   )
 }
+const DividerFooterLinks = () => {
+  return (
+    <Typography component='span' sx={{fontSize: '0.9em', m: 1}}>/</Typography>
+  )
+}
+
+interface IBrand {
+  title: string,
+  src: string,
+}
+
+const BrandsList = () => {
+  const brands = [
+    {
+      title: 'burton',
+      src: Burton,
+    },
+    {
+      title: 'darkstar',
+      src: Darkstar,
+    },
+    {
+      title: 'dc',
+      src: Dc,
+    },
+    {
+      title: 'nitro',
+      src: Nitro,
+    },
+    {
+      title: 'salomon',
+      src: Salomon,
+    },
+    {
+      title: 'vans',
+      src: Vans,
+    }
+  ];
+  return (
+    <Grid container spacing={2}>
+      {brands.map((brand: IBrand) => (
+        <Grid key={brand.title} item xs={4} sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          minWidth: '70px'
+        }}>
+        <Box sx={{
+          bgcolor: myTheme.light.background.primary,
+          p: 1,
+          width: '100%',
+          textAlign: 'center',
+        }}>
+          <img
+            src={brand.src}
+            srcSet={brand.src}
+            alt={brand.title}
+            loading="lazy"
+            width='70px'
+            height= '70px'
+          />
+        </Box>
+        </Grid>
+      ))}
+    </Grid>
+  );
+}
+
+const EmailForm = () => {
+  const EmailButton = () => (
+    <Button color='primary' size='small' sx={{
+      borderRadius: '0',
+      bgcolor: myTheme.dark.text.secondary,
+      color: myTheme.dark.background.primary,
+      '&:hover': {
+        bgcolor: 'rgba(255,255,255,0.54)',
+      }
+    }}>
+      <ArrowForwardIosIcon fontSize='small'/>
+    </Button>
+  )
+  return (
+    <Box  sx={{
+      mb: {
+        xs: 4,
+        sm: 0
+      },
+      mt: {
+        xs: 0,
+        sm: 0
+      },
+      display: 'flex',
+      height: '44px',
+      justifyContent: 'center',
+    }}>
+      <TextField
+        id="send-email"
+        label="Enter email for newsletter"
+        variant="filled"
+        size="small"
+        InputProps={{
+          style: {
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            color: myTheme.dark.text.secondary,
+            backgroundColor: myTheme.dark.background.secondary,
+            borderRadius: '0',
+            fontSize: '0.9em',
+            minWidth: '16em'
+          },
+          disableUnderline: true
+        }}
+        InputLabelProps={{
+          style: {
+            color: myTheme.dark.text.secondary,
+            fontSize: '0.9em'
+          } }}
+      />
+      <EmailButton />
+    </Box>
+  );
+}
+
+const Socials = () => {
+  return (
+    <Box sx={{
+      display: 'flex',
+      flexWrap: 'noWrap',
+      justifyContent: 'center',
+    }}>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        }
+      }}>
+        <IconButton
+          size='small'
+          sx={{
+            borderRadius: 0,
+            '&:hover': {
+              bgcolor: 'transparent'
+            }
+          }}
+          aria-label="facebook.com"
+          onClick={() => window.open('https://www.facebook.com')}
+        >
+          <Facebook style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="linkedin.com" onClick={() => window.open('https://www.linkedin.com')}>
+          <LinkedIn style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="twitter.com" onClick={() => window.open('https://www.twitter.com')}>
+          <Twitter style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="google.com" onClick={() => window.open('https://www.google.com')}>
+          <GooglePlus style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+    </Box>
+  )
+}
 
 const Footer = () => {
   return (
@@ -49,13 +263,13 @@ const Footer = () => {
       fontSize: '.9em',
       letterSpacing: '0.5px',
       lineHeight: '1.5',
-      textAlign: 'justify'
+      textAlign: 'justify',
     }}
     >
       <Container maxWidth="xl">
         <Grid container
               rowSpacing={{xs: 2}}
-              columnSpacing={{ xs: 2, md: 12 }}
+              columnSpacing={{ sm: 4, md: 8 }}
               sx={{ p: 3 }}
         >
           <Grid item
@@ -86,10 +300,12 @@ const Footer = () => {
                 md={4}
           >
             <TitleFooter>brands</TitleFooter>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum exercitationem illum optio pariatur voluptatem. Aut eligendi natus nisi quo recusandae.
+            <BrandsList />
           </Grid>
         </Grid>
-        <Divider color="#1c1c1c"/>
+      </Container>
+      <Divider color="#1c1c1c"/>
+      <Container maxWidth="xl">
         <Box sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -99,32 +315,59 @@ const Footer = () => {
             sm: 'row'
           }
         }}>
-          <div>form button</div>
-          <div>social platform icons</div>
+          <EmailForm />
+          <Socials />
         </Box>
       </Container>
       <LinksFooter>
         <Container maxWidth="xl">
           <Box sx={{
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: {
+              xs: 'center',
+              sm: 'space-between',
+            },
+            flexFlow: 'row wrap',
+            alignItems: 'center',
+            p: 3,
           }}
           >
-            {pages.map((page, index,array) => (
-              <Typography key={page.title}>
-                <Link
-                  href={page.href}
-                  textAlign="center"
-                  sx={{
-                    textDecoration: 'none',
-                    color: myTheme.dark.text.primary
-                  }}
-                >
-                  {page.title}
-                </Link>
-                {index < array.length-1 && "/"}
-              </Typography>
-            ))}
+            <Box>
+              <Typography component='div' align='left' fontSize='0.9em'>Copyright © Snowboarding 2022. </Typography>
+              <Typography component='div' align='left' fontSize='0.9em'>Designed by EnzoLiVolti.</Typography>
+            </Box>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              order: {
+                xs: -1,
+                sm: 0
+              },
+              width: {
+                xs: '100%',
+                sm: 'auto',
+              },
+              mb: {
+                xs: 3,
+                sm: 0,
+              }
+            }}>
+              {pages.map((page, index,array) => (
+                <Typography key={page.title} fontSize='0.9em'>
+                  <Link
+                    href={page.href}
+                    textAlign="center"
+                    sx={{
+                      textDecoration: 'none',
+                      color: myTheme.dark.text.secondary
+                    }}
+                  >
+                    {page.title}
+                  </Link>
+                  {index < array.length-1 && <DividerFooterLinks />}
+                </Typography>
+              ))}
+            </Box>
           </Box>
         </Container>
       </LinksFooter>
