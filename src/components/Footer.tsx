@@ -1,20 +1,25 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import {myTheme} from "../styles/myTheme";
 import {Button, Grid, Link} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
 import {pages} from "./Header";
+import {myTheme} from "../styles/myTheme";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import TextField from '@material-ui/core/TextField';
-import burton from '../images/brands/burton.png';
-import darkstar from '../images/brands/darkstar.png';
-import dc from '../images/brands/dc.png';
-import nitro from '../images/brands/nitro.png';
-import salomon from '../images/brands/salomon.png';
-import vans from '../images/brands/vans.png';
+import Burton from '../images/brands/burton.png';
+import Darkstar from '../images/brands/darkstar.png';
+import Dc from '../images/brands/dc.png';
+import Nitro from '../images/brands/nitro.png';
+import Salomon from '../images/brands/salomon.png';
+import Vans from '../images/brands/vans.png';
+import { ReactComponent as Facebook } from '../images/social/facebook.svg';
+import { ReactComponent as GooglePlus } from '../images/social/google-plus.svg';
+import { ReactComponent as LinkedIn } from '../images/social/linkedin2.svg';
+import { ReactComponent as Twitter } from '../images/social/twitter.svg';
 
 const TitleFooter = styled('div')(() => ({
   color: myTheme.dark.text.secondary,
@@ -62,27 +67,27 @@ const BrandsList = () => {
   const brands = [
     {
       title: 'burton',
-      src: burton,
+      src: Burton,
     },
     {
       title: 'darkstar',
-      src: darkstar,
+      src: Darkstar,
     },
     {
       title: 'dc',
-      src: dc,
+      src: Dc,
     },
     {
       title: 'nitro',
-      src: nitro,
+      src: Nitro,
     },
     {
       title: 'salomon',
-      src: salomon,
+      src: Salomon,
     },
     {
       title: 'vans',
-      src: vans,
+      src: Vans,
     }
   ];
   return (
@@ -133,7 +138,13 @@ const EmailForm = () => {
         xs: 4,
         sm: 0
       },
-      display: 'flex'
+      mt: {
+        xs: 0,
+        sm: 0
+      },
+      display: 'flex',
+      height: '44px',
+      justifyContent: 'center',
     }}>
       <TextField
         id="send-email"
@@ -161,6 +172,86 @@ const EmailForm = () => {
       <EmailButton />
     </Box>
   );
+}
+
+const Socials = () => {
+  return (
+    <Box sx={{
+      display: 'flex',
+      flexWrap: 'noWrap',
+      justifyContent: 'center',
+    }}>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        }
+      }}>
+        <IconButton
+          size='small'
+          sx={{
+            borderRadius: 0,
+            '&:hover': {
+              bgcolor: 'transparent'
+            }
+          }}
+          aria-label="facebook.com"
+          onClick={() => window.open('https://www.facebook.com')}
+        >
+          <Facebook style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="linkedin.com" onClick={() => window.open('https://www.linkedin.com')}>
+          <LinkedIn style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="twitter.com" onClick={() => window.open('https://www.twitter.com')}>
+          <Twitter style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+      <Box sx={{
+        bgcolor: myTheme.dark.background.secondary,
+        transition: 'background .3s',
+        '&:hover': {
+          bgcolor: myTheme.dark.text.primary,
+          transition: 'background .3s',
+        },
+        ml: 1,
+      }}>
+        <IconButton size='small' aria-label="google.com" onClick={() => window.open('https://www.google.com')}>
+          <GooglePlus style={{
+            fill: myTheme.dark.text.secondary,
+          }}/>
+        </IconButton>
+      </Box>
+    </Box>
+  )
 }
 
 const Footer = () => {
@@ -225,7 +316,7 @@ const Footer = () => {
           }
         }}>
           <EmailForm />
-          <div>social platform icons</div>
+          <Socials />
         </Box>
       </Container>
       <LinksFooter>
