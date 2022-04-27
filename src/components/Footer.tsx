@@ -323,7 +323,10 @@ const Footer = () => {
         <Container maxWidth="xl">
           <Box sx={{
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: {
+              xs: 'center',
+              sm: 'space-between',
+            },
             flexFlow: 'row wrap',
             alignItems: 'center',
             p: 3,
@@ -335,6 +338,7 @@ const Footer = () => {
             </Box>
             <Box sx={{
               display: 'flex',
+              justifyContent: 'center',
               order: {
                 xs: -1,
                 sm: 0
