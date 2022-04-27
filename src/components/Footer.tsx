@@ -1,12 +1,14 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import {myTheme} from "../styles/myTheme";
-import {Grid, Link} from "@mui/material";
+import {Button, Grid, Link} from "@mui/material";
 import {styled} from "@mui/material/styles";
-import React from "react";
 import Typography from "@mui/material/Typography";
 import {pages} from "./Header";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import TextField from '@material-ui/core/TextField';
 import burton from '../images/brands/burton.png';
 import darkstar from '../images/brands/darkstar.png';
 import dc from '../images/brands/dc.png';
@@ -86,7 +88,7 @@ const BrandsList = () => {
   return (
     <Grid container spacing={2}>
       {brands.map((brand: IBrand) => (
-        <Grid item xs={4} sx={{
+        <Grid key={brand.title} item xs={4} sx={{
           display: 'flex',
           justifyContent: 'center',
           minWidth: '70px'
@@ -112,6 +114,55 @@ const BrandsList = () => {
   );
 }
 
+const EmailForm = () => {
+  const EmailButton = () => (
+    <Button color='primary' size='small' sx={{
+      borderRadius: '0',
+      bgcolor: myTheme.dark.text.secondary,
+      color: myTheme.dark.background.primary,
+      '&:hover': {
+        bgcolor: 'rgba(255,255,255,0.54)',
+      }
+    }}>
+      <ArrowForwardIosIcon fontSize='small'/>
+    </Button>
+  )
+  return (
+    <Box  sx={{
+      mb: {
+        xs: 4,
+        sm: 0
+      },
+      display: 'flex'
+    }}>
+      <TextField
+        id="send-email"
+        label="Enter email for newsletter"
+        variant="filled"
+        size="small"
+        InputProps={{
+          style: {
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            color: myTheme.dark.text.secondary,
+            backgroundColor: myTheme.dark.background.secondary,
+            borderRadius: '0',
+            fontSize: '0.9em',
+            minWidth: '16em'
+          },
+          disableUnderline: true
+        }}
+        InputLabelProps={{
+          style: {
+            color: myTheme.dark.text.secondary,
+            fontSize: '0.9em'
+          } }}
+      />
+      <EmailButton />
+    </Box>
+  );
+}
+
 const Footer = () => {
   return (
     <Box sx={{
@@ -121,7 +172,7 @@ const Footer = () => {
       fontSize: '.9em',
       letterSpacing: '0.5px',
       lineHeight: '1.5',
-      textAlign: 'justify'
+      textAlign: 'justify',
     }}
     >
       <Container maxWidth="xl">
@@ -173,7 +224,7 @@ const Footer = () => {
             sm: 'row'
           }
         }}>
-          <div>form button</div>
+          <EmailForm />
           <div>social platform icons</div>
         </Box>
       </Container>
