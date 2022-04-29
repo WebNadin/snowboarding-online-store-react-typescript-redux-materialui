@@ -47,17 +47,6 @@ const Filters = () => {
   )
 }
 
-async function fetchProducts() {
-  let response = await fetch(
-    'https://webnadin.inf.ua/snowboarding/data.json',
-  );
-  let products = await response.json();
-  return products;
-}
-let products = fetchProducts();
-
-console.log("products =", products);
-
 const Products = () => {
   return (
     <Box>
