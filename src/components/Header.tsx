@@ -81,19 +81,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const pages = [
   {
     title: 'Home',
-    href: '/'
+    href: ''
   },
   {
     title: 'Products',
-    href: '/products'
+    href: 'products'
   },
   {
     title: 'About',
-    href: '/about'
+    href: 'about'
   },
   {
     title: 'Contact',
-    href: '/contact'
+    href: 'contact'
   }
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -231,7 +231,7 @@ const Header = () => {
                 {pages.map((page) => (
                   <MenuItem key={page.title}>
                     <Link
-                      href={page.href}
+                      href={`#/${page.href}`}
                       textAlign="center"
                       sx={{
                         textDecoration: 'none',
@@ -250,7 +250,7 @@ const Header = () => {
                 return (
                   <Box sx={{ display: 'flex' }} key={page.title}>
                     <Link
-                      href={page.href}
+                      href={`#/${page.href}`}
                       sx={{color: myTheme.light.text.primary, display: 'block', p:1 }}
                     >
                       {page.title}

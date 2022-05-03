@@ -355,7 +355,7 @@ const Footer = () => {
               {pages.map((page, index,array) => (
                 <Typography key={page.title} fontSize='0.9em'>
                   <Link
-                    href={page.href}
+                    href={`#/${page.href}`}
                     textAlign="center"
                     sx={{
                       textDecoration: 'none',
