@@ -19,7 +19,7 @@ import InputBase from '@mui/material/InputBase';
 import { ShoppingCart as ShoppingCartIcon } from '@material-ui/icons';
 import {myTheme} from "../styles/myTheme";
 import avatar from '../images/avatar.jpg';
-import {Link} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const darkTheme = createTheme({
   palette: {
@@ -97,6 +97,12 @@ export const pages = [
   }
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+export const NavLink = styled(Link)`
+  text-align: center;
+  text-decoration: none;
+  color: rgba(0,0,0,0.87);
+`;
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -230,16 +236,11 @@ const Header = () => {
               >
                 {pages.map((page) => (
                   <MenuItem key={page.title}>
-                    <Link
-                      href={`#/${page.href}`}
-                      textAlign="center"
-                      sx={{
-                        textDecoration: 'none',
-                        color: myTheme.light.text.primary
-                    }}
+                    <NavLink
+                      to={`/${page.href}`}
                     >
                       {page.title}
-                    </Link>
+                    </NavLink>
                   </MenuItem>
                 ))}
               </Menu>
@@ -249,12 +250,13 @@ const Header = () => {
               {pages.map((page) => {
                 return (
                   <Box sx={{ display: 'flex' }} key={page.title}>
-                    <Link
-                      href={`#/${page.href}`}
-                      sx={{color: myTheme.light.text.primary, display: 'block', p:1 }}
-                    >
-                      {page.title}
-                    </Link>
+                    <Box p={1}>
+                      <NavLink
+                        to={`/${page.href}`}
+                      >
+                        {page.title}
+                      </NavLink>
+                    </Box>
                     <Divider orientation="vertical" flexItem />
                   </Box>
                 )
