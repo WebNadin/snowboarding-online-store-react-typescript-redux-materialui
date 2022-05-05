@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import {Button, Grid, Link} from "@mui/material";
+import {Button, Grid} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import {pages} from "./Header";
+import {NavLink, pages} from "./Header";
 import {myTheme} from "../styles/myTheme";
 import Divider from "@mui/material/Divider";
 import Container from "@mui/material/Container";
@@ -254,6 +254,9 @@ const Socials = () => {
   )
 }
 
+const NavLinkFooter = styled(NavLink)`
+  color: #6b6b6b;
+`;
 const Footer = () => {
   return (
     <Box sx={{
@@ -354,16 +357,11 @@ const Footer = () => {
             }}>
               {pages.map((page, index,array) => (
                 <Typography key={page.title} fontSize='0.9em'>
-                  <Link
-                    href={`#/${page.href}`}
-                    textAlign="center"
-                    sx={{
-                      textDecoration: 'none',
-                      color: myTheme.dark.text.secondary
-                    }}
+                  <NavLinkFooter
+                    to={`/${page.href}`}
                   >
                     {page.title}
-                  </Link>
+                  </NavLinkFooter>
                   {index < array.length-1 && <DividerFooterLinks />}
                 </Typography>
               ))}
