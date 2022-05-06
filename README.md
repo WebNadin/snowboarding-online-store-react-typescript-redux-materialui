@@ -18,7 +18,7 @@ In this project I used:
 - styled-component
 
 
-You can see result on [http://webnadin.inf.ua/](http://webnadin.inf.ua/)
+You can see result on [http://webnadin.inf.ua/snowboarding](http://webnadin.inf.ua//snowboarding)
 
 ## Available Scripts
 
