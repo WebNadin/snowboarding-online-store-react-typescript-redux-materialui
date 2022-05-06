@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import {myTheme} from "../styles/myTheme";
+import data from "../data/data.json";
 
 const Tools = () => {
   return (
@@ -26,12 +27,14 @@ const Tools = () => {
 }
 
 const ProductsList = () => {
+  const products = data.products;
+  console.log("products =", products);
   return (
     <Box sx={{
       bgcolor: '#b9f1d4de',
       flexGrow: 1,
     }}>
-      products list
+      products test
     </Box>
   )
 }
