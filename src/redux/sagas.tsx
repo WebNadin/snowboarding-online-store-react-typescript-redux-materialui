@@ -1,24 +1,24 @@
 import {takeEvery, put, call} from "redux-saga/effects";
-import {FETCH_COMMENTS, REQUEST_COMMENTS} from "./types";
 import {hideLoader, showAlert, showLoader} from "./actions";
+import {GET_PRODUCTS, SHOW_PRODUCTS} from "./types";
+import data from "../data/data.json";
 
 export function* sagaWatcher() {
-  yield takeEvery(REQUEST_COMMENTS, sagaWorker)
+  yield takeEvery(SHOW_PRODUCTS, sagaProductsWorker)
 }
 
-function* sagaWorker() {
+function* sagaProductsWorker() {
   try {
     yield put(showLoader());
-    const payload: {} = yield call(fetchComments);
-    yield put({ type: FETCH_COMMENTS, payload });
+    const payload: {} = yield call(fetchProducts);
+    yield put({ type: GET_PRODUCTS, payload });
     yield put(hideLoader());
   } catch (e) {
-    yield put(showAlert("Что-то пошло не так"));
     yield put(hideLoader());
+    yield put(showAlert('Что-то пошло не так'));
   }
 }
 
-async function fetchComments() {
-  const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=5');
-  return await response.json();
+function fetchProducts() {
+  return data.products;
 }

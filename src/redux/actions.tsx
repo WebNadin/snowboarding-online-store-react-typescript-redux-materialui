@@ -1,21 +1,19 @@
 import {
-  CREATE_COMMENT,
-  FETCH_COMMENTS,
   HIDE_ALERT,
   HIDE_LOADER,
-  REQUEST_COMMENTS,
   SHOW_ALERT,
-  SHOW_LOADER
+  SHOW_LOADER,
+  SHOW_PRODUCTS
 } from "./types";
-import {AppDispatch} from "../index";
 
-
-export function createComment(comment: {}): {} {
-  return {
-    type: CREATE_COMMENT,
-    payload: comment,
-  }
+export interface IAction {
+  type: string,
+  payload?: {}
 }
+
+export type IAlert = {
+  text: string
+} | null
 
 export function showLoader() {
   return {
@@ -47,20 +45,8 @@ export function hideAlert() {
   }
 }
 
-export function fetchComments(): {} {
+export function showProducts(): {} {
   return {
-    type: REQUEST_COMMENTS
+    type: SHOW_PRODUCTS
   }
-  // return async (dispatch: ({}) => void) => {
-  //   try {
-  //     dispatch(showLoader());
-  //     const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=5');
-  //     const json = await response.json();
-  //     dispatch({type: FETCH_COMMENTS, payload: json})
-  //     dispatch(hideLoader());
-  //   } catch (e) {
-  //     dispatch(showAlert("Что-то пошло не так"));
-  //     dispatch(hideLoader());
-  //   }
-  // }
 }
