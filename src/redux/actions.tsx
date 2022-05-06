@@ -2,7 +2,8 @@ import {
   HIDE_ALERT,
   HIDE_LOADER,
   SHOW_ALERT,
-  SHOW_LOADER
+  SHOW_LOADER,
+  SHOW_PRODUCTS
 } from "./types";
 
 export interface IAction {
@@ -41,5 +42,11 @@ export function showAlert(text: string): any {
 export function hideAlert() {
   return {
     type: HIDE_ALERT
+  }
+}
+
+export function showProducts(): {} {
+  return {
+    type: SHOW_PRODUCTS
   }
 }
