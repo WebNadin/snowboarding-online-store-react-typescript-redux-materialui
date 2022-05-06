@@ -1,6 +1,5 @@
-import {IAction} from "./commentsReducer";
 import {HIDE_ALERT, HIDE_LOADER, SHOW_ALERT, SHOW_LOADER} from "./types";
-import {IAlert} from "../components/FetchedComments";
+import {IAction, IAlert} from "./actions";
 
 export interface IAppState {
     loading: boolean,
