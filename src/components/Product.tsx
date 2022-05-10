@@ -4,22 +4,11 @@ import {IProduct} from "./Products";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import {myTheme} from "../styles/myTheme";
-import styled from "@emotion/styled";
 import Divider from "@mui/material/Divider";
 import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined';
 import StarBorderOutlined from '@material-ui/icons/StarBorderOutlined';
 import ShareOutlined from '@material-ui/icons/ShareOutlined';
 import AddShoppingCartOutlined from '@material-ui/icons/AddShoppingCartOutlined';
-
-
-const CardActionsIconButton = styled(IconButton)(() => ({
-  transition: 'color .3s',
-  '&:hover': {
-    color: myTheme.common.accent,
-    backgroundColor: 'transparent',
-    transition: 'color .3s',
-  }
-}))
 
 const Product = ({ product }: {product: IProduct}) => {
   return (
@@ -88,18 +77,71 @@ const Product = ({ product }: {product: IProduct}) => {
             zIndex: 1,
             justifyContent: 'center',
           }}>
-            <CardActionsIconButton aria-label="visibility">
+            <IconButton
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="visibility"
+              sx={{
+                transition: 'color .3s',
+                '&:hover': {
+                  color: myTheme.common.accent,
+                  backgroundColor: 'transparent',
+                  transition: 'color .3s',
+              }}
+            }>
               <VisibilityOutlined  fontSize="inherit" />
-            </CardActionsIconButton>
-            <CardActionsIconButton aria-label="rating" disabled sx={{pl:0}}>
+            </IconButton>
+            <IconButton
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="rating"
+              disabled
+              sx={{
+                transition: 'color .3s',
+                pl:0,
+                '&:hover': {
+                  color: myTheme.common.accent,
+                  backgroundColor: 'transparent',
+                  transition: 'color .3s',
+                }}
+              }>
               <StarBorderOutlined  fontSize="inherit" />
-            </CardActionsIconButton>
-            <CardActionsIconButton aria-label="share" disabled sx={{pl:0}}>
+            </IconButton>
+            <IconButton
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="share"
+              disabled
+              sx={{
+                transition: 'color .3s',
+                pl:0,
+                '&:hover': {
+                  color: myTheme.common.accent,
+                  backgroundColor: 'transparent',
+                  transition: 'color .3s',
+                }}
+              }>
               <ShareOutlined  fontSize="inherit" />
-            </CardActionsIconButton>
-            <CardActionsIconButton aria-label="add-to-cart" sx={{pl:0}}>
+            </IconButton>
+            <IconButton
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="add-to-cart"
+              sx={{
+                transition: 'color .3s',
+                pl:0,
+                '&:hover': {
+                  color: myTheme.common.accent,
+                  backgroundColor: 'transparent',
+                  transition: 'color .3s',
+                }}
+              }>
               <AddShoppingCartOutlined  fontSize="inherit" />
-            </CardActionsIconButton>
+            </IconButton>
           </CardActions>
         </Box>
       </CardContent>
