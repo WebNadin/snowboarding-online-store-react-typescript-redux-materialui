@@ -4,7 +4,22 @@ import {IProduct} from "./Products";
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import {myTheme} from "../styles/myTheme";
+import styled from "@emotion/styled";
 import Divider from "@mui/material/Divider";
+import VisibilityOutlined from '@material-ui/icons/VisibilityOutlined';
+import StarBorderOutlined from '@material-ui/icons/StarBorderOutlined';
+import ShareOutlined from '@material-ui/icons/ShareOutlined';
+import AddShoppingCartOutlined from '@material-ui/icons/AddShoppingCartOutlined';
+
+
+const CardActionsIconButton = styled(IconButton)(() => ({
+  transition: 'color .3s',
+  '&:hover': {
+    color: myTheme.common.accent,
+    backgroundColor: 'transparent',
+    transition: 'color .3s',
+  }
+}))
 
 const Product = ({ product }: {product: IProduct}) => {
   return (
@@ -71,9 +86,20 @@ const Product = ({ product }: {product: IProduct}) => {
             boxSizing: 'border-box',
             pl: 12,
             zIndex: 1,
-            justifyContent: 'flex-end',
+            justifyContent: 'center',
           }}>
-            <IconButton size="small">Learn More</IconButton>
+            <CardActionsIconButton aria-label="visibility">
+              <VisibilityOutlined  fontSize="inherit" />
+            </CardActionsIconButton>
+            <CardActionsIconButton aria-label="rating" disabled sx={{pl:0}}>
+              <StarBorderOutlined  fontSize="inherit" />
+            </CardActionsIconButton>
+            <CardActionsIconButton aria-label="share" disabled sx={{pl:0}}>
+              <ShareOutlined  fontSize="inherit" />
+            </CardActionsIconButton>
+            <CardActionsIconButton aria-label="add-to-cart" sx={{pl:0}}>
+              <AddShoppingCartOutlined  fontSize="inherit" />
+            </CardActionsIconButton>
           </CardActions>
         </Box>
       </CardContent>
