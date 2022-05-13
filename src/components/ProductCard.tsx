@@ -130,7 +130,6 @@ const ProductCard = ({ product }: {product: IProduct}) => {
               aria-label="add-to-cart"
               sx={{
                 transition: 'color .3s',
-                pl:0,
                 '&:hover': {
                   color: myTheme.common.accent,
                   backgroundColor: 'transparent',
