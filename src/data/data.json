@@ -9,8 +9,9 @@
         "152cm"
       ],
       "price": 480,
-      "sale": true,
-      "top": false,
+      "sale": false,
+      "new": false,
+      "order": 7,
       "rating": 5,
       "type": "snowboard",
       "img": {
@@ -30,7 +31,8 @@
       ],
       "price": 220,
       "sale": true,
-      "top": false,
+      "new": false,
+      "order": 13,
       "rating": 4,
       "type": "snowboard",
       "img": {
@@ -46,8 +48,9 @@
         "100cm"
       ],
       "price": 149,
-      "sale": false,
-      "top": false,
+      "sale": true,
+      "new": false,
+      "order": 1,
       "rating": 3,
       "type": "snowboard",
       "img": {
@@ -64,7 +67,8 @@
       ],
       "price": 400,
       "sale": false,
-      "top": true,
+      "new": true,
+      "order": 6,
       "rating": 5,
       "type": "snowboard",
       "img": {
@@ -81,7 +85,8 @@
       ],
       "price": 199,
       "sale": false,
-      "top": true,
+      "new": false,
+      "order": 2,
       "rating": 5,
       "type": "boots",
       "img": {
@@ -101,9 +106,10 @@
         "12K",
         "13K"
       ],
-      "price": 199,
+      "price": 187,
       "sale": false,
-      "top": false,
+      "new": true,
+      "order": 9,
       "rating": 3,
       "type": "boots",
       "img": {
@@ -122,7 +128,8 @@
       ],
       "price": 257,
       "sale": true,
-      "top": false,
+      "new": false,
+      "order": 11,
       "rating": 4,
       "type": "boots",
       "img": {
@@ -141,7 +148,8 @@
       ],
       "price": 263,
       "sale": false,
-      "top": true,
+      "new": true,
+      "order": 12,
       "rating": 5,
       "type": "boots",
       "img": {
@@ -158,7 +166,8 @@
       ],
       "price": 369,
       "sale": true,
-      "top": false,
+      "new": false,
+      "order": 15,
       "rating": 5,
       "type": "bindings",
       "img": {
@@ -176,7 +185,8 @@
       ],
       "price": 305,
       "sale": false,
-      "top": false,
+      "new": false,
+      "order": 8,
       "rating": 3,
       "type": "bindings",
       "img": {
@@ -193,7 +203,8 @@
       ],
       "price": 45,
       "sale": false,
-      "top": false,
+      "new": false,
+      "order": 14,
       "rating": 4,
       "type": "bindings",
       "img": {
@@ -210,7 +221,8 @@
       ],
       "price": 253,
       "sale": false,
-      "top": true,
+      "new": true,
+      "order": 3,
       "rating": 5,
       "type": "bindings",
       "img": {
@@ -227,7 +239,8 @@
       ],
       "price": 119,
       "sale": true,
-      "top": false,
+      "new": false,
+      "order": 5,
       "rating": 5,
       "type": "helmets",
       "img": {
@@ -245,7 +258,8 @@
       ],
       "price": 194,
       "sale": false,
-      "top": false,
+      "new": false,
+      "order": 10,
       "rating": 4,
       "type": "helmets",
       "img": {
@@ -262,7 +276,8 @@
       ],
       "price": 52,
       "sale": false,
-      "top": false,
+      "new": false,
+      "order": 4,
       "rating": 3,
       "type": "helmets",
       "img": {
@@ -280,7 +295,8 @@
       ],
       "price": 123,
       "sale": false,
-      "top": true,
+      "new": true,
+      "order": 16,
       "rating": 3,
       "type": "helmets",
       "img": {

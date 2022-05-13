@@ -6,7 +6,7 @@ import {showProducts} from "../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {IAppState} from "../redux/appReducer";
 import {Loader} from "./Loader";
-import Product from "./Product";
+import ProductCard from "./ProductCard";
 import {Button, Grid} from "@mui/material";
 import {styled} from '@mui/material/styles';
 
@@ -38,16 +38,17 @@ interface IImage {
 }
 
 export interface IProduct {
-  id: number,
+  id: string,
   title: string,
   type: string,
   price: number,
   rating?: number,
   img: IImage,
   sale: boolean,
-  top: boolean,
+  new: boolean,
   size: string[],
   originalUrl?: string,
+  order: number,
 }
 
 interface IProducts {
@@ -74,6 +75,9 @@ const ProductsList = () => {
   const products = useSelector( (state: IState) => {
     return state.productsReducer.products;
   })
+
+  products.sort((a, b) => (a.order - b.order));
+
   const loading = useSelector( (state: IState) => {
     return state.appReducer.loading
   })
@@ -89,8 +93,8 @@ const ProductsList = () => {
       }}>
         {products.map((product: IProduct) => {
           return (
-            <Grid item xs={6} sm={4} lg={3} key={product.id}>
-              <Product product={product} />
+            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+              <ProductCard product={product} />
             </Grid>
           )
         })}
