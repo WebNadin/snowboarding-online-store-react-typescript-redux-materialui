@@ -1,6 +1,7 @@
 export const myTheme = {
   common: {
-    accent: '#57c5a0'
+    accent: '#57c5a0',
+    error: '#f27e4b',
   },
   light: {
     background: {

@@ -11,29 +11,82 @@ import ShareOutlined from '@material-ui/icons/ShareOutlined';
 import AddShoppingCartOutlined from '@material-ui/icons/AddShoppingCartOutlined';
 
 const ProductCard = ({ product }: {product: IProduct}) => {
+
+  const SaleSign = () => {
+    return (
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        right: '1em',
+        top: 0,
+        width: '70px',
+        height: '70px',
+        backgroundColor: myTheme.common.error,
+        color: myTheme.dark.text.contrast,
+        textTransform: 'uppercase',
+        letterSpacing: '1px',
+        fontWeight: 600,
+      }}>
+        sale
+      </Box>
+    )
+  }
+  const NewSign = () => {
+    return (
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        right: '1em',
+        top: 0,
+        width: '70px',
+        height: '70px',
+        backgroundColor: myTheme.dark.background.primary,
+        color: myTheme.dark.text.contrast,
+        textTransform: 'uppercase',
+        letterSpacing: '1px',
+        fontSize: '0.7em',
+        textAlign: 'center',
+      }}>
+        new arrival
+      </Box>
+    )
+  }
+
   return (
     <Card sx={{
       height: '100%',
-      borderRadius: '0'
+      borderRadius: '0',
+      p: 0,
     }}>
-      <CardContent>
-        <Box
-          component="img"
-          sx={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            mb: 2,
-          }}
-          alt={product.type}
-          src={ require(`../images/products/${product.img.origin}`)}
-        />
+      <CardContent sx={{p: 0}}>
+        <Box sx={{position: 'relative'}}>
+          <Box
+            component="img"
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              boxSizing: 'border-box',
+              mb: 2,
+              p: 2,
+            }}
+            alt={product.type}
+            src={ require(`../images/products/${product.img.origin}`)}
+          />
+          {product.sale && <SaleSign />}
+          {product.new && <NewSign />}
+        </Box>
         <Divider />
         <Box sx={{
           position: 'relative',
           minHeight: '4.5em',
           display: 'flex',
           alignItems: 'center',
+          pl: 1, pr: 1,
           ":hover .card-actions": {
             transform: 'translateY(0)',
             transition: 'transform .3s',
@@ -73,7 +126,7 @@ const ProductCard = ({ product }: {product: IProduct}) => {
             width: '100%',
             display: 'flex',
             boxSizing: 'border-box',
-            pl: 12,
+            pl: 12, pb: 0,
             zIndex: 1,
             justifyContent: 'center',
           }}>
