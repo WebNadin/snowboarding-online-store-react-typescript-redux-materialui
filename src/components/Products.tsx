@@ -45,7 +45,7 @@ export interface IProduct {
   rating?: number,
   img: IImage,
   sale: boolean,
-  top: boolean,
+  new: boolean,
   size: string[],
   originalUrl?: string,
 }
