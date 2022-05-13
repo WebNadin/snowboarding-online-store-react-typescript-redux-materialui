@@ -48,6 +48,7 @@ export interface IProduct {
   new: boolean,
   size: string[],
   originalUrl?: string,
+  order: number,
 }
 
 interface IProducts {
@@ -74,6 +75,9 @@ const ProductsList = () => {
   const products = useSelector( (state: IState) => {
     return state.productsReducer.products;
   })
+
+  products.sort((a, b) => (a.order - b.order));
+
   const loading = useSelector( (state: IState) => {
     return state.appReducer.loading
   })
