@@ -1,22 +1,13 @@
-import React from 'react'
-import {Card, CardContent, Typography} from "@mui/material";
-import {IProduct} from "./Products";
+import {useParams} from "react-router-dom";
+import Container from "@mui/material/Container";
 
-const Product = ({ product }: {product: IProduct}) => {
+const Product = () => {
+
+  let {id} = useParams<{id: string}>();
   return (
-    <Card sx={{
-      height: '100%',
-      borderRadius: '0'
-    }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          userId: {product.id}
-        </Typography>
-        <Typography variant="h5" component="div">
-          {product.title}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Container maxWidth="xl">
+      <h1>Product page with id = {id}</h1>
+    </Container>
   )
 }
 
