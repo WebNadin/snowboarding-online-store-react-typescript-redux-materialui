@@ -1,8 +1,10 @@
+import Container from "@mui/material/Container";
+
 const Contact = () => {
   return (
-    <div>
+    <Container maxWidth="xl" sx={{pt: 2}}>
       Contact component
-    </div>
+    </Container>
   )
 }
 
