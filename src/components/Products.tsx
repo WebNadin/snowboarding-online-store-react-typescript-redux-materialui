@@ -135,7 +135,7 @@ const Products = () => {
     dispatch(showProducts());
   });
   return (
-    <Box>
+    <Box pt={3}>
       <Container maxWidth="xl">
         <Tools />
         <Box sx={{
