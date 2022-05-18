@@ -1,6 +1,6 @@
 # Online shop where you can by snowboarding equipment (React, Redux, Material UI, TypeScript)
 
-![Website working gif](https://github.com/WebNadin/snowboarding/blob/dev/readme-img.gif)
+![Website working gif](https://github.com/WebNadin/snowboarding-online-store-react-typescript-redux-materialui/blob/dev/readme-img.gif)
 
 This website shows the list of products. Page has adaptive header and footer. Switching between pages is provided 
 by React Router. Components and elements were created by Material UI library or with styled components. Both 
